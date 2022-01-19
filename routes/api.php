@@ -19,7 +19,7 @@ use App\Http\Controllers\RandomNumberController;
 
 Route::middleware(['middleware' => 'api'])->group(function () {
     Route::get('/sheet', [GenerateSheetController::class, 'index']);
-    Route::get('/number', [RandomNumberController::class, 'index']);
+    Route::post('/number', [RandomNumberController::class, 'index']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -10,6 +10,8 @@ class GenerateSheetController extends Controller
     {
         $numbers = range(1,99);
         shuffle($numbers);
-        return array_slice($numbers,0,24);
+        $bingo_range = array_splice($numbers,0,24);
+        array_splice($bingo_range,12,0,'');
+        return $bingo_range;
     }
 }
