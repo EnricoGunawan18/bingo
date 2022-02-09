@@ -11,12 +11,17 @@ class RandomNumberController extends Controller
         $str_exclusion = $request->input('number');
 
         $exclusion = json_decode($str_exclusion); 
-        
-        $rand_num = mt_rand(1,99);
-        
-        while(in_array($rand_num,$exclusion)){
+
+        if(count($exclusion) <  100 ){
             $rand_num = mt_rand(1,99);
+            
+            while(in_array($rand_num,$exclusion)){
+                $rand_num = mt_rand(1,99);
+            }
+            return $rand_num;
         }
-        return $rand_num;
+        else{
+            
+        }
     }
 }
